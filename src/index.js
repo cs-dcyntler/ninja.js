@@ -1,6 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { render } from 'react-dom';
+import { UserDataContextProvider } from './contexts/userDataContext';
+import { App } from './components/App/App';
 
-var userData = JSON.parse(document.getElementById('user-data').dataset.users);
-ReactDOM.render(<App rows={userData} />, document.getElementById('root'));
+render(
+  <UserDataContextProvider>
+    <App />
+  </UserDataContextProvider>,
+  document.getElementById('root')
+);
